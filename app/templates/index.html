@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.4/css/flag-icons.min.css"
+          integrity="sha512-uvXdJud8WaOlQFjlz9B15Yy2Au/bMAvz79F7Xa6OakCl2jvQPdHD0hb3dEqZRdSwG4/sknePXlE7GiarwA/9Wg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
   </head>
 
@@ -27,13 +29,13 @@
                                 </a>
                             </li>
                              <li class="nav-item">
-                                <a class="nav-link" href="#">CHARTS</a>
+                                <a class="nav-link" href="#">GRAPHS</a>
                              </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#">PROFILE</a>
+                              <a class="nav-link" href="#">RATES TABLE</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#">ABOUT</a>
+                              <a class="nav-link" href="#">PROFILE</a>
                             </li>
                             <li class="nav-item dropdown">
                               <div class="dropdown">
@@ -91,19 +93,73 @@
                                 <p>Enter Amount</p>
                                 <input type="text" value="1">
                             </div>
-                            <div class="from_converter">
-                                <p>From:</p>
-                                <div class="select-box">
-
+                            <div class="d-flex flex-md-row flex-wrap justify-content-center">
+                                <div class="col-xs-5 from_converter">
+                                    <p>From:</p>
+                                    <div class="select-box">
+                                        <select></select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="to_converter">
-                                <p>To:</p>
-                                <div class="select-box">
-
+                                <div class="col-xs-5 to_converter">
+                                    <p>To:</p>
+                                    <div class="select-box">
+                                        <select></select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="showcase">
+                            <h2>GBP <span class="fi fi-gb"></span>
+                                &#8594;
+                                USD <span class="fi fi-us"></span>
+                            </h2>
+                            <p>1.00 GBP =</p>
+                            <h3>2.137 USD</h3>
+                            <p type="time" class="text-right">Jul 29, 2022 10:13 UTC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section2 container-fluid p-0">
+            <div class="cover">
+                <div class="back"></div>
+                <div class="content text-center">
+                    <h1>Popular Exchange Rates</h1>
+                    <p>Check live changes of most popular currencies</p>
+                </div>
+            </div>
+            <div class="container-fluid text-center">
+                <div class="d-flex lex-wrap justify-content-center">
+                    <div class="currency_rect">
+                        <h3>USD <span class="fi fi-us"></span></h3>
+                        <h4>[rate]</h4>
+                    </div>
+                    <div class="currency_rect">
+                        <h3>GBP <span class="fi fi-gb"></span></h3>
+                        <h4>[rate]</h4>
+                    </div>
+                    <div class="currency_rect">
+                        <h3>EUR <span class="fi fi-eu"></span></h3>
+                        <h4>[rate]</h4>
+                    </div>
+                      <div class="currency_rect">
+                        <h3>CAD <span class="fi fi-ca"></span></h3>
+                          <h4>[rate]</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section3 container-fluid p-0 text-center">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <h1>Graphs</h1>
+                    <div class="graph">
+
                     </div>
                 </div>
             </div>
@@ -111,7 +167,34 @@
     </main>
 
 
-
+  <footer>
+    <div class="container-fluid p-0">
+      <div class="row text-left">
+        <div class="col-md-5 col-sm-5">
+          <h4 class="text-light">About us</h4>
+          <p class="text-muted">We are students in AGH University of Science and Technology in Krakow</p>
+            <h5 class="text-light">Authors</h5>
+          <p class="text-muted">Kacper Bojanowski, Mateusz Potaśnik, Bartosz Szymański </p>
+        </div>
+        <div class="col-md-5 col-sm-12">
+          <h4 class="text-light">Newsletter</h4>
+          <p class="text-muted">Stay tuned</p>
+          <form class="form-inline">
+            <div class="col pl-0">
+              <div class="input-group pr-5">
+                <input type="text" class="form-control bg-dark text-white" id="EmailForm" placeholder="Email">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fas fa-arrow-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 
 
