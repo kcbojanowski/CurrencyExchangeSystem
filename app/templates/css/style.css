@@ -44,6 +44,7 @@ header #login {
     color: whitesmoke;
 }
 
+
 header #signin {
     margin-right: 130px;
 }
@@ -87,6 +88,28 @@ header .container .col-md-7 h1 {
 header .container .col-md-7 p {
   padding: 1vmin 5vmin;
 }
+
+.title_cover .title_text {
+  width: 100%;
+  height: 100%;
+  padding-top: 15vmin;
+  padding-bottom: 5vmin;
+  letter-spacing: 2px;
+}
+
+.title_cover .title_text > h1{
+    margin-top: 40px;
+    font-weight: bold;
+    font-size: 5.5vmin;
+    color: #ffffff;
+}
+
+.title_cover .title_text > p{
+    margin-top: 10px;
+    font-size: 2.5vmin;
+    color: #ffffff;
+}
+
 
 footer {
   background: var(--bggradient);

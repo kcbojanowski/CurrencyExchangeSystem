@@ -1,0 +1,110 @@
+:root{
+    --Sniglet: "Sniglet", cursive;
+    --Poppins: "Poppins", cursive;
+    --Patua: "Patua One", cursive;
+    --Inter: "Inter", cursive;
+    --light-black: #26282C;
+    --light-gray: #a6a8a8;
+    --bggradient: linear-gradient(315deg, #2d3436 0%, #151618 74%);
+    --gradient2:  linear-gradient(0deg, #28a0af 0%, #2657a1 74%);
+}
+
+
+
+.profile1 {
+    font-family: Poppins, sans-serif;
+}
+
+.profile-image{
+	border-radius: 25px;
+	border: 2px solid #38DEC8;
+}
+.name{
+	font-size: 20px;
+	font-weight: bold;
+	color: #272727;
+	position: relative;
+	top: 8px;
+}
+.mail{
+	font-size: 14px;
+	color: grey;
+	position: relative;
+	top: 2px;
+}
+.middle-prof{
+	background-color: #eee;
+	border-radius: 12px;
+    margin-bottom: 20px;
+}
+.middle-prof:hover {
+	border: 1px solid #38DEC8;
+}
+
+.dollar-div{
+	background-color: #38DEC8;
+	border-radius: 10px;
+    font-family: Poppins, sans-serif;
+}
+
+.dollar-div{
+	background-color: #38DEC8;
+	padding: 12px;
+	border-radius: 10px;
+}
+.round-div{
+	border-radius: 50%;
+	width: 35px;
+	height: 35px;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.dollar{
+	font-size: 16px !important;
+	color: #38DEC8 !important;
+	font-weight: bold !important;
+}
+.current-balance {
+    font-size: 16px;
+    font-weight: bold;
+}
+.amount{
+	color: #2eb7a5;
+	font-size: 16px;
+	font-weight: bold;
+}
+.dollar-sign{
+	font-size: 16px;
+	color: #272727;
+	font-weight: bold;
+}
+
+.botcards{
+	font-size: 17px;
+	font-weight: 700;
+	color: #272727;
+
+}
+.borders:hover{
+    border-bottom: 1px solid #38DEC8;
+}
+
+.rightside{
+    background-color: #fff;
+	width: 400px;
+	box-shadow: 7.0px 13.9px 13.9px hsl(0deg 0% 0% / 0.28);
+    border-radius: 25px;
+	padding: 5vmin ;
+    margin-right: 200px;
+}
+
+.rightside #divhis {
+    display: none;
+}
+
+.rightside #divset {
+    display: none;
+}
