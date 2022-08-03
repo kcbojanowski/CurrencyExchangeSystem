@@ -44,14 +44,12 @@ header #login {
     color: whitesmoke;
 }
 
-
 header #signin {
     margin-right: 130px;
 }
 
 header {
   background: #2d3436;
-  /* fallback for old browsers */
   background: var(--bggradient);
 }
 

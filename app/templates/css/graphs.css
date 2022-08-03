@@ -1,0 +1,10 @@
+.graphs1 {
+    font-family: Poppins, sans-serif;
+}
+
+.graphs1 .panel .col-xs-5 > p {
+    font-size: 3vmin;
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}

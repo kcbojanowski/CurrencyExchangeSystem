@@ -7,13 +7,112 @@
     <title>Currency Exchange Website</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/signin.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.4/css/flag-icons.min.css"
           integrity="sha512-uvXdJud8WaOlQFjlz9B15Yy2Au/bMAvz79F7Xa6OakCl2jvQPdHD0hb3dEqZRdSwG4/sknePXlE7GiarwA/9Wg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+
+    <script src="https://kit.fontawesome.com/05a09beaf0.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <header>
+         <div class="container-fluid p-0">
+             <nav class="navbar navbar-expand-lg">
+                 <a class="navbar-brand" href="index.html"><img src="img/logo.png"></a>
+                 <div class="collapse navbar-collapse" id="navbarNav">
+                     <div class="mr-auto"></div>
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="index.html">HOME
+                                </a>
+                            </li>
+                             <li class="nav-item">
+                                <a class="nav-link" href="#">GRAPHS
+                                <span class="sr-only">(current)</span>
+                                </a>
+                             </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="table.html">RATES TABLE</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="profile.html">PROFILE</a>
+                            </li>
+                        </ul>
+                            <div class="login">
+                                <a href="#"  id="login" role="button" data-toggle="dropdown" class="nav-link dropdown-toggle">LOGIN</a>
+                            </div>
+                            <div id="signin">
+                                <a href="signin.html" class="nav-link">SIGN IN
+                                    <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+                            </div>
 
+                 </div>
+             </nav>
+         </div>
+    </header>
+    <main>
+        <div class="signin1">
+            <div class="back">
+                <a href="index.html"><i class="fa-solid fa-angle-left fa-2xl"></i></a>
+            </div>
+            <div class="formcont container p-2">
+                <div class="d-flex flex-md-row flex-wrap justify-content-center">
+                    <div class="form-items">
+                        <h1>Register Today</h1>
+                        <p>Fill in the data below.</p>
+                        <form class="requires-validation" novalidate>
+                            <div class="col-md-16">
+                               <input class="form-control" type="text" name="name" placeholder="Full Name" required>
+                               <div class="valid-feedback">Username field is valid!</div>
+                               <div class="invalid-feedback">Username field cannot be blank!</div>
+                            </div>
+
+                            <div class="col-md-16">
+                                <input class="form-control" type="email" name="email" placeholder="E-mail Address" required>
+                                 <div class="valid-feedback">Email field is valid!</div>
+                                 <div class="invalid-feedback">Email field cannot be blank!</div>
+                            </div>
+
+                           <div class="col-md-16">
+                              <input class="form-control" type="password" name="password" placeholder="Password" required>
+                               <div class="invalid-feedback">Password field cannot be blank!</div>
+                           </div>
+
+                          <div class="col-md-16">
+                              <input class="form-control" type="password" name="password" placeholder="Confirm Password" required>
+                               <div class="invalid-feedback">Passwords are not the same!</div>
+                           </div>
+
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                          <label class="form-check-label">I confirm that all data are correct</label>
+                         <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
+                        </div>
+
+
+                            <div class="form-button mt-3">
+                                <button id="submit" type="submit" class="btn">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container-fluid p-0">
+          <div class="row text-left">
+            <div class="col-md-5 col-sm-5">
+              <h4 class="text-light">About us</h4>
+              <p class="text-muted">We are students in AGH University of Science and Technology in Krakow</p>
+                <h5 class="text-light">Authors</h5>
+              <p class="text-muted">Kacper Bojanowski, Mateusz Potaśnik, Bartosz Szymański </p>
+            </div>
+          </div>
+        </div>
+    </footer>
 </body>
 </html>
