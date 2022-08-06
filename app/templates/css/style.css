@@ -15,7 +15,7 @@ section {
     --Inter: "Inter", cursive;
     --light-black: #26282C;
     --light-gray: #a6a8a8;
-    --bggradient: linear-gradient(315deg, #2d3436 0%, #151618 74%);
+    --bggradient: linear-gradient(360deg, #2d3436 0%, #151618 74%);
     --gradient2:  linear-gradient(0deg, #28a0af 0%, #2657a1 74%);
 }
 
@@ -39,9 +39,6 @@ header .nav-link:hover {
 
 header #login {
     margin-left: 80px;
-    font-family: var(--Sniglet);
-    font-size: 0.9em;
-    color: whitesmoke;
 }
 
 header #signin {
@@ -108,12 +105,6 @@ header .container .col-md-7 p {
     color: #ffffff;
 }
 
-
-footer {
-  background: var(--bggradient);
-    overflow-x: hidden;
-  padding: 12vmin 15vmin;
-}
 .section1{
     font-family: "Poppins", sans-serif;
 }
@@ -237,6 +228,12 @@ footer {
     font-size: 5.5vmin;
 }
 
+footer {
+  background: #2d3436;
+    overflow-x: hidden;
+  padding: 12vmin 15vmin;
+}
+
 footer input {
   border: none !important;
 }
@@ -246,7 +243,7 @@ footer input::placeholder {
 }
 
 footer .input-group .input-group-text {
-  background: var(--gradient2);
+  background: #2eb7a5;
   border: none;
 }
 

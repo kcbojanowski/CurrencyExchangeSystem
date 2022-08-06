@@ -22,6 +22,8 @@ main {
     padding: 10vmin;
 }
 
+
+
 .back i{
     color: #38DEC8;
     padding-left: 30px;
@@ -51,6 +53,7 @@ main {
 .signin1 .form-button > button {
     border: none;
     color: whitesmoke;
+    margin-top: 10px;
     background-color: #2eb7a5;
 }
 
@@ -64,11 +67,16 @@ main {
 }
 .signin1 .form-check > label {
     color: whitesmoke;
+}
 
+.signin1 .logcont .log-items{
+    padding: 60px;
+    border:1px solid #2eb7a5;
+    box-shadow: 4.0px 8.0px 8.0px hsl(172, 62%, 32%);
 }
 
 footer {
-  background: linear-gradient(360deg, #0f4840 0%, #2d3436 20%);
+  background:#2d3436;
     overflow-x: hidden;
-  padding: 12vmin 15vmin;
+  padding: 8vmin 15vmin;
 }
