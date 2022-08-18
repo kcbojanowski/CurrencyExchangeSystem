@@ -51,8 +51,7 @@ header {
 }
 
 header .row .col-md-7 {
-  padding: 22vmin 1vmin;
-  padding-bottom: 35vmin;
+    padding: 22vmin 1vmin 35vmin;
 }
 
 header .row .col-md-5 {
@@ -87,7 +86,7 @@ header .container .col-md-7 p {
 .title_cover .title_text {
   width: 100%;
   height: 100%;
-  padding-top: 15vmin;
+  padding-top: 10vmin;
   padding-bottom: 5vmin;
   letter-spacing: 2px;
 }

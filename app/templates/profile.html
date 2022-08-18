@@ -56,7 +56,7 @@
          </div>
         <div class="title_cover">
             <div class="title_text text-center">
-                <h1>Zielone Check Profile</h1>
+                <h1>Your Profile</h1>
             </div>
         </div>
     </header>
@@ -87,9 +87,6 @@
                     </div>
                     <div onclick="replaceHis()" class="borders pt-2">
                         <span class="botcards">Purchase History</span>
-                    </div>
-                    <div onclick="replaceSet()" class="borders pt-2">
-                        <span  class="botcards">Settings</span>
                     </div>
                 </div>
             </div>
@@ -137,21 +134,92 @@
                             </div>
                         </div>
 
-                        <div class="container business text-center">
-                            <div class="col-md-6 col-12">
-                                <p class="amount">Enter Amount: </p>
-                                <input type="text" value="1">
-
+                        <div class="d-flex flex-md-row flex-wrap business text-center justify-content-center">
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <label class="amount">Enter Amount:
+                                        <input type="text" value="1">
+                                    </label>
+                                    <label class="amount">Currency: <br>
+                                        <select>
+                                            <option value="0">PLN</option>
+                                            <option value="1">GBD</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="bus-buttons col-md-6 col-12">
+                                    <button class="button-bus" role="button">
+                                        Buy
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </button><br>
+                                    <button class="button-bus" role="button">
+                                        Sell
+                                        <i class="fa-solid fa-arrow-trend-up"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                 </div>
-
                 <div id="divhis" class="card_right">
                     <h2>History</h2>
-                </div>
-
-                <div id="divset" class="card_right">
-                    <h2>Settings</h2>
+                    <div class="history-table" style="overflow-y: scroll">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>FROM</th>
+                                    <th>TO</th>
+                                    <th>COST</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-row">
+                                    <td><span class="fi fi-pln"></span> PLN</td>
+                                    <td><span class="fi fi-gb"></span> GBP</td>
+                                    <td><p>4.20</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="fi fi-pln"></span> PLN</td>
+                                    <td><span class="fi fi-gb"></span> GBP</td>
+                                    <td><p>4.20</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="fi fi-pln"></span> PLN</td>
+                                    <td><span class="fi fi-gb"></span> GBP</td>
+                                    <td><p>4.20</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="fi fi-pln"></span> PLN</td>
+                                    <td><span class="fi fi-gb"></span> GBP</td>
+                                    <td><p>4.20</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="fi fi-pln"></span> PLN</td>
+                                    <td><span class="fi fi-gb"></span> GBP</td>
+                                    <td><p>4.20</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="fi fi-pln"></span> PLN</td>
+                                    <td><span class="fi fi-gb"></span> GBP</td>
+                                    <td><p>4.20</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="fi fi-pln"></span> PLN</td>
+                                    <td><span class="fi fi-gb"></span> GBP</td>
+                                    <td><p>4.20</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="fi fi-pln"></span> PLN</td>
+                                    <td><span class="fi fi-gb"></span> GBP</td>
+                                    <td><p>4.20</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="fi fi-pln"></span> PLN</td>
+                                    <td><span class="fi fi-gb"></span> GBP</td>
+                                    <td><p>4.20</p></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
             </div>

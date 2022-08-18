@@ -1,16 +1,9 @@
-function replaceSet() {
-    document.getElementById("divset").style.display="block";
-    document.getElementById("divwal").style.display="none";
-    document.getElementById("divhis").style.display="none";
-}
 
 function replaceWal() {
-    document.getElementById("divset").style.display="none";
-    document.getElementById("divwal").style.display="block";
     document.getElementById("divhis").style.display="none";
+    document.getElementById("divwal").style.display="block";
 }
 function replaceHis() {
-    document.getElementById("divset").style.display = "none";
     document.getElementById("divwal").style.display = "none";
     document.getElementById("divhis").style.display = "block";
 }

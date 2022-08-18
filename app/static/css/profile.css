@@ -75,6 +75,7 @@
     font-weight: bold;
 }
 .amount{
+	margin-top:20px;
 	color: #2eb7a5;
 	font-weight: bold;
 }
@@ -96,11 +97,13 @@
 
 .rightside{
     background-color: #2d3436;
-	width: 400px;
+	width: 300px;
 	box-shadow: 7.0px 13.9px 13.9px hsl(0deg 0% 0% / 0.28);
     border-radius: 25px;
 	padding-bottom: 100px ;
 	margin: 50px;
+	justify-content: center;
+	align-items: center;
 }
 
 .rightside h2 {
@@ -110,12 +113,13 @@
 }
 
 .main-wallet {
-  width:500px;
-  display:block;
-  background-color: white;
-  box-shadow: 7.0px 13.9px 13.9px hsl(0deg 0% 0% / 0.28);
-  border-radius: 25px;
-	margin: 20px;
+
+	  width:500px;
+	  display:block;
+	  background-color: white;
+	  box-shadow: 7.0px 13.9px 13.9px hsl(0deg 0% 0% / 0.28);
+	  border-radius: 25px;
+	  margin-left: 35px;
 }
 
 .amount_wallet {
@@ -134,10 +138,64 @@
 	margin-top: 50px;
 }
 
-.rightside #divhis {
-    display: none;
+.rightside .business select {
+
 }
 
-.rightside #divset {
+.pln {
+	margin-top: 80px;
+	margin-left: 30px;
+	color: whitesmoke;
+	font-weight: bold;
+}
+
+.business .bus-buttons {
+	margin-top: 20px;
+}
+
+.button-bus {
+  background: #239889;
+  border-radius: 999px;
+  margin: 20px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 8px 18px;
+  border: 0;
+}
+
+.rightside #divhis {
     display: none;
+	margin-top: 30px;
+}
+
+.rightside .history-table {
+	height: 500px;
+	width: 700px;
+}
+
+ ::-webkit-scrollbar {
+	width: 20px;
+}
+
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 2px grey;
+	border-radius: 10px;
+  	background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  	background: #2fb9a7;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #1f8578;
+}
+
+.rightside .history-table table {
+	color: whitesmoke;
+	width: 600px;
+	padding: 30px;
 }
