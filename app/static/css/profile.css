@@ -118,19 +118,22 @@
 	margin: 20px;
 }
 
-
 .amount_wallet {
 	font-size: 30px;
 	color: #2eb7a5;
 	font-weight: bold;
 }
 
-
 .rightside .money {
 	margin: 50px;
 	height: 400px;
 	width: 700px;
 }
+
+.rightside .business {
+	margin-top: 50px;
+}
+
 .rightside #divhis {
     display: none;
 }

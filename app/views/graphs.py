@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-bp = Blueprint('bp_grpahs', __name__)
+bp = Blueprint('bp_graphs', __name__)
 
 
 @bp.route('/graphs')
