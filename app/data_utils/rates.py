@@ -30,5 +30,5 @@ class Invoice(object):
 
 
 if __name__ == '__main__':
-    euros = Invoice('EUR', '2022-08-05', 562.63)
+    euros = Invoice('EUR', '2022-08-09', 1)
     print(euros.amount_in_pln)
