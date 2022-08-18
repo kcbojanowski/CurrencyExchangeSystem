@@ -76,7 +76,6 @@
 }
 .amount{
 	color: #2eb7a5;
-	font-size: 16px;
 	font-weight: bold;
 }
 .dollar-sign{
@@ -96,7 +95,7 @@
 }
 
 .rightside{
-    background-color: #fff;
+    background-color: #2d3436;
 	width: 400px;
 	box-shadow: 7.0px 13.9px 13.9px hsl(0deg 0% 0% / 0.28);
     border-radius: 25px;
@@ -104,6 +103,34 @@
 	margin: 50px;
 }
 
+.rightside h2 {
+	color: #ffffff;
+	font-weight: bold;
+	margin: 10px;
+}
+
+.main-wallet {
+  width:500px;
+  display:block;
+  background-color: white;
+  box-shadow: 7.0px 13.9px 13.9px hsl(0deg 0% 0% / 0.28);
+  border-radius: 25px;
+	margin: 20px;
+}
+
+
+.amount_wallet {
+	font-size: 30px;
+	color: #2eb7a5;
+	font-weight: bold;
+}
+
+
+.rightside .money {
+	margin: 50px;
+	height: 400px;
+	width: 700px;
+}
 .rightside #divhis {
     display: none;
 }

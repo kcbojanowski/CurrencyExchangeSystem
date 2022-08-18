@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" href="../static/css/profile.css">
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.4/css/flag-icons.min.css"
           integrity="sha512-uvXdJud8WaOlQFjlz9B15Yy2Au/bMAvz79F7Xa6OakCl2jvQPdHD0hb3dEqZRdSwG4/sknePXlE7GiarwA/9Wg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="../static/img/favicon.ico" type="image/x-icon">
@@ -94,7 +96,50 @@
 
             <div class="rightside container d-flex justify-content-center mt-5 col-md-7">
                 <div id="divwal" class="card_right">
-                    <h2>Wallet</h2>
+                    <h2 class="text-center">Wallet</h2>
+
+                        <div class="main-wallet text-center">
+                            <div class="slider slider-top d-flex lex-wrap justify-content-center">
+                                <div class="currency_rect">
+                                    <h3 class="">USD <span class="fi fi-us"></span></h3>
+                                    <span class="amount_wallet">21545.37$</span>
+                                </div>
+                                <div class="currency_rect">
+                                    <h3 >GBD <span class="fi fi-gb"></span></h3>
+                                    <span class="amount_wallet">420.37$</span>
+                                </div>
+                                <div class="currency_rect">
+                                    <h3 >PLN <span class="fi fi-pl"></span></h3>
+                                    <span class="amount_wallet">69.37$</span>
+                                </div>
+                                <div class="currency_rect">
+                                    <h3 >AUE <span class="fi fi-au"></span></h3>
+                                    <span class="amount_wallet">21.37$</span>
+                                </div>
+                            </div>
+                            <div class="slider slider-bottom d-flex lex-wrap justify-content-center">
+                                <div class="currency_rect">
+                                    <h3>USD <span class="fi fi-us"></span></h3>
+                                    <span>21545.37$</span>
+                                </div>
+                                <div class="currency_rect">
+                                    <h3 >GBD <span class="fi fi-gb"></span></h3>
+                                    <span>420.37$</span>
+                                </div>
+                                <div class="currency_rect">
+                                    <h3 >PLN <span class="fi fi-pl"></span></h3>
+                                    <span>69.37$</span>
+                                </div>
+                                <div class="currency_rect">
+                                    <h3 >AUE <span class="fi fi-au"></span></h3>
+                                    <span>21.37$</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container business text-center">
+
+                        </div>
                 </div>
 
                 <div id="divhis" class="card_right">
@@ -137,24 +182,10 @@
           </div>
         </div>
     </footer>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="../static/js/profile.js" charset="utf-8"></script>
 </body>
 </html>
 
-<script type = "text/javascript">
-function replaceSet() {
-document.getElementById("divset").style.display="block";
-document.getElementById("divwal").style.display="none";
-document.getElementById("divhis").style.display="none";
-}
-
-function replaceWal() {
-document.getElementById("divset").style.display="none";
-document.getElementById("divwal").style.display="block";
-document.getElementById("divhis").style.display="none";
-}
-function replaceHis() {
-document.getElementById("divset").style.display="none";
-document.getElementById("divwal").style.display="none";
-document.getElementById("divhis").style.display="block";
-}
-</script>
