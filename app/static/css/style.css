@@ -121,12 +121,25 @@ header .container .col-md-7 p {
     border-radius: 25px;
 }
 
+.btn-index {
+  background: #239889;
+  border-radius: 999px;
+  margin: 20px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 8px 18px;
+  border: 0;
+}
+
 .section1 .panel .d-flex{
     padding: 5vmin 5vmin;
 }
 
-.section1 .panel .from_converter{
-     margin-right: 100px;
+.section1 .panel .buttons-converter{
+     padding: 20px;
+    margin-top: 20px;
 }
 
 .section1 .showcase{
