@@ -209,50 +209,6 @@
 {% endblock %}
 
 {% block scripts %}
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 <script src="../static/js/profile.js"></script>
-<script>function sell() {
-        let content = $('#message-input').val(); // get message content
-        let code = $('#UserSelect').val();
-
-        $.ajax({
-            url: "/profile",
-            type: "POST",
-            data: JSON.stringify({
-            'amount': content,
-            'code': code,
-            'type': 'sell'
-            }),
-            contentType: "application/json",
-        })
-        .done(function (data){
-            $('#message-input').val('1')
-        })
-        .fail(function (xhr, status, errorThrown){
-            alert("Cannot add message")
-        })
-    }
-    function buy() {
-        let content = $('#message-input').val(); // get message content
-        let code = $('#UserSelect').val();
-
-        $.ajax({
-            url: "/profile",
-            type: "POST",
-            data: JSON.stringify({
-            'content': content,
-            'code': code,
-            'type': 'buy'
-            }),
-            contentType: "application/json",
-        })
-        .done(function (data){
-            $('#message-input').val('1')
-        })
-        .fail(function (xhr, status, errorThrown){
-            alert("Cannot add message")
-        })
-    }
-</script>
 {% endblock %}

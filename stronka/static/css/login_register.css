@@ -50,14 +50,15 @@ main {
     padding: 10px;
 }
 
-.signin1 .form-button > button {
+.signin1 .form-button .btn {
     border: none;
     color: whitesmoke;
     margin-top: 10px;
+
     background-color: #2eb7a5;
 }
 
-.signin1 .form-button > button:active {
+.signin1 .form-button .btn:active {
     border: none;
     background-color: #14524a;
 }

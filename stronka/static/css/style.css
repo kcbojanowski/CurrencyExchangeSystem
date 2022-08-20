@@ -37,7 +37,7 @@ header .nav-link:hover {
   color: #38DEC8;
 }
 
-header #login {
+header .login {
     margin-left: 80px;
 }
 
@@ -133,13 +133,48 @@ header .container .col-md-7 p {
   border: 0;
 }
 
-.section1 .panel .d-flex{
+.section1 .panel{
     padding: 5vmin 5vmin;
 }
 
-.section1 .panel .buttons-converter{
-     padding: 20px;
-    margin-top: 20px;
+.section1 form .drop-list{
+  display: flex;
+  margin-top: 10px;
+    margin-bottom: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section1 .drop-list .select-box{
+  display: flex;
+  width: 115px;
+  height: 45px;
+  align-items: center;
+  border-radius: 5px;
+  justify-content: center;
+  border: 1px solid #999;
+}
+
+.btn-index {
+  background: #239889;
+  border-radius: 999px;
+  margin: 20px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  font-weight: bold;
+  padding: 8px 18px;
+  border: 0;
+}
+
+.exchange {
+    margin-top: 38px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: whitesmoke;
+    border-color: #38dec8;
+    border-width: 2px;
+
 }
 
 .section1 .showcase{
