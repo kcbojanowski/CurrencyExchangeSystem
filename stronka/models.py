@@ -1,16 +1,21 @@
 from stronka import db, login_manager
 from stronka import bcrypt
 from flask_login import UserMixin
+import datetime
+
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+
 class User(db.Model, UserMixin):
+    __tablename__ = 'user'
     id = db.Column(db.Integer(), primary_key=True)
     username = db.Column(db.String(length=30), nullable=False, unique=True)
     email_address = db.Column(db.String(length=50), nullable=False, unique=True)
     password_hash = db.Column(db.String(length=60), nullable=False)
+    wallet = db.relationship('Wallet', back_populates="user", lazy=True)
 
     @property
     def password(self):
@@ -22,3 +27,13 @@ class User(db.Model, UserMixin):
 
     def check_password_correction(self, attempted_password):
         return bcrypt.check_password_hash(self.password_hash, attempted_password)
+
+
+class Wallet(db.Model):
+    __tablename__ = 'wallet'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    currency_code = db.Column(db.String(3), nullable=False)
+    amount = db.Column(db.DECIMAL(6, 2))
+    transaction_at = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.utcnow)
+    user = db.relationship("User", back_populates="wallet", lazy=False)
