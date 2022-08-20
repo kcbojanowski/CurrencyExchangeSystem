@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block links %}
+    <link rel="stylesheet" href="../static/css/table.css">
+{% endblock %}
+
+{% block navbar %}
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for('home_page') }}">HOME</a>
+    </li>
+     <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('graphs_page') }}">GRAPHS</a>
+     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ url_for('table_page') }}">RATES TABLE
+          <i class="fa-solid fa-list"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url_for('profile_page')}}">PROFILE</a>
+    </li>
+{% endblock %}
+
+{% block header %}
+    <div class="title_cover">
+        <div class="title_text text-center">
+            <h1>Rate Tables</h1>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="top-rates text-center justify-content-center">
+            <div class="pln container d-flex flex-column">
+                <h3><span class="fi fi-pl"></span> Polski Zloty
+                    <i class="fa-solid fa-circle-right"></i>
+                </h3>
+            </div>
+
+        </div>
+        <div class="rates container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>CURRENCY</th>
+                        <th>1.00 PLN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-row">
+                        <td><span class="fi fi-gb"></span> GBP</td>
+                        <td><p>4.0</p></td>
+                    </tr>
+                    <tr>
+                        <td><span class="fi fi-gb"></span> GBP</td>
+                        <td><p>4.0</p></td>
+                    </tr>
+                    <tr>
+                        <td><span class="fi fi-gb"></span> GBP</td>
+                        <td><p>4.0</p></td>
+                    </tr>
+                    <tr>
+                        <td><span class="fi fi-gb"></span> GBP</td>
+                        <td><p>4.0</p></td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <p class="source">Source: NBP Web API</p>
+        </div>
+    </main>
+{% endblock%}
