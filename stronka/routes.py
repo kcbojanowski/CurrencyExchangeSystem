@@ -1,19 +1,29 @@
+import datetime
+
 from flask import render_template, redirect, url_for, flash
 from flask_login import login_user, logout_user, login_required
 from stronka import app
 from stronka.forms import RegisterForm, LoginForm
 from stronka.models import User
 from stronka import db
-
+from stronka.data_utils.rates import Invoice
 
 @app.route('/')
 @app.route('/home')
 def home_page():
-    return render_template('index.html')
+    today = str(datetime.datetime.now().date())
+    date = str(datetime.datetime.now().strftime("%d %b %Y %H:%M"))
+    euros = Invoice('EUR', today, 1)
+    dollar = Invoice('USD', today, 1)
+    funt = Invoice('GBP', today, 1)
+    cad = Invoice('CAD', today, 1)
+    return render_template('index.html', eur=euros,usd=dollar,funt=funt,cad=cad, today=date)
+
 
 @app.route('/graphs')
 def graphs_page():
     return render_template('graphs.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login_page():
@@ -29,6 +39,7 @@ def login_page():
         else:
             flash('Username and password are not match! Please try again', category='danger')
     return render_template('login.html', form=form)
+
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin_page():
@@ -47,14 +58,17 @@ def signin_page():
             flash(f'There was an error with creating a user: {err_msg}', category='danger')
     return render_template('signin.html', form=form)
 
+
 @app.route('/profile')
 @login_required
 def profile_page():
     return render_template('profile.html')
 
+
 @app.route('/table')
 def table_page():
     return render_template('table.html')
+
 
 @app.route('/logout')
 def logout_page():

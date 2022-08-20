@@ -76,7 +76,7 @@
                             </h2>
                             <p>1.00 GBP =</p>
                             <h3>2.137 USD</h3>
-                            <p type="time" class="text-right">Jul 29, 2022 10:13 UTC</p>
+                            <p type="time" class="text-right">{{today}}</p>
                         </div>
                     </div>
                 </div>
@@ -95,19 +95,19 @@
                 <div class="d-flex lex-wrap justify-content-center">
                     <div class="currency_rect">
                         <h3>USD <span class="fi fi-us"></span></h3>
-                        <h4>[rate]</h4>
+                        <h4>{{ usd.amount_in_pln}}</h4>
                     </div>
                     <div class="currency_rect">
                         <h3>GBP <span class="fi fi-gb"></span></h3>
-                        <h4>[rate]</h4>
+                        <h4>{{ funt.amount_in_pln}}</h4>
                     </div>
                     <div class="currency_rect">
                         <h3>EUR <span class="fi fi-eu"></span></h3>
-                        <h4>[rate]</h4>
+                        <h4>{{ eur.amount_in_pln}}</h4>
                     </div>
                       <div class="currency_rect">
                         <h3>CAD <span class="fi fi-ca"></span></h3>
-                          <h4>[rate]</h4>
+                          <h4>{{ cad.amount_in_pln}}</h4>
                     </div>
                 </div>
             </div>
