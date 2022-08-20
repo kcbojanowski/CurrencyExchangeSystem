@@ -1,5 +1,5 @@
 import datetime
-
+from sqlalchemy import func
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_user, logout_user, login_required, current_user
 from stronka import app
@@ -19,8 +19,7 @@ def home_page():
     dollar = Invoice('USD', today, 1)
     funt = Invoice('GBP', today, 1)
     cad = Invoice('CAD', today, 1)
-    return render_template('index.html', eur=euros,usd=dollar,funt=funt,cad=cad, today=date)
-
+    return render_template('index.html', eur=euros, usd=dollar, funt=funt, cad=cad, today=date)
 
 
 @app.route('/graphs')
@@ -68,18 +67,18 @@ def profile_page():
     today = str(datetime.datetime.now().date())
     data = request.get_json(force=True)
     if 'sell' in data['type']:
-        inv = Invoice(data['code'], today, float(data['content'])).amount_in_pln
+        inv = Invoice(data['code'], today, float(data['amount'])).amount_in_pln
         obj_pln = Wallet(user_id=current_user.id, currency_code='PLN', amount=inv)
-        obj_for = Wallet(user_id=current_user.id, currency_code=data['code'], amount=-float(data['content']))
+        obj_for = Wallet(user_id=current_user.id, currency_code=data['code'], amount=-float(data['amount']))
         db.session.add(obj_pln)
         db.session.commit()
         db.session.add(obj_for)
         db.session.commit()
         return '', 204
     elif 'buy' in data['type']:
-        inv = Invoice(data['code'], today, float(data['content'])).amount_in_pln
+        inv = Invoice(data['code'], today, float(data['amount'])).amount_in_pln
         obj_pln = Wallet(user_id=current_user.id, currency_code='PLN', amount=-inv)
-        obj_for = Wallet(user_id=current_user.id, currency_code=data['code'], amount=float(data['content']))
+        obj_for = Wallet(user_id=current_user.id, currency_code=data['code'], amount=float(data['amount']))
         db.session.add(obj_pln)
         db.session.commit()
         db.session.add(obj_for)
@@ -89,7 +88,7 @@ def profile_page():
         return 'Transaction refused.', 400
 
 
-@app.route('/profile',)
+@app.route('/profile', )
 @login_required
 def profile_page_get():
     return render_template('profile.html')
