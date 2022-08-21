@@ -7,39 +7,39 @@ function replaceHis() {
     document.getElementById("divwal").style.display = "none";
     document.getElementById("divhis").style.display = "block";
 }
+const SelectGraph = document.querySelectorAll("form select"),
+graphButton = document.querySelector("form .btn-index");
 
-function sell() {
-    let content = $('#message-input').val(); // get message content
-    let code = $('#UserSelect').val();
-
-    $.ajax({
-        url: "/profile",
-        type: "POST",
-        data: JSON.stringify({
-        'amount': content,
-        'code': code,
-        'type': 'sell'
-        }),
-        contentType: "application/json",
-    })
-    .done(function (data){
-        $('#message-input').val('1')
-    })
-    .fail(function (xhr, status, errorThrown){
-        alert("Cannot add message")
-    })
+for (let i = 0; i < SelectGraph.length; i++) {
+    for(let currency_code in country_list){
+        let selected = i === 0 ? currency_code === "USD" ? "selected" : "" : currency_code === "PLN" ? "selected" : "";
+        let optionTag = `<option value="${currency_code}" ${selected}>${currency_code}</option>`;
+        SelectGraph[i].insertAdjacentHTML("beforeend", optionTag);
+    }
+    SelectGraph[i].addEventListener("change", e =>{
+        loadFlag(e.target);
+    });
 }
-function buy() {
-    let content = $('#message-input').val(); // get message content
-    let code = $('#UserSelect').val();
+function loadFlag(element){
+    for(let code in country_list){
+        if(code === element.value){
+            let flagTag = element.parentElement.querySelector("span");
+            flagTag.className = `fi fi-${country_list[code]}`;
+        }
+    }
+}
 
+function buy() {
+    let content = $('#message-input').val();
+    let code_1 = $('#UserSelect_1').val();
+    let code_2 = $('#UserSelect_2').val();
     $.ajax({
         url: "/profile",
         type: "POST",
         data: JSON.stringify({
         'content': content,
-        'code': code,
-        'type': 'buy'
+        'code_1': code_1,
+        'code_2': code_2,
         }),
         contentType: "application/json",
     })
