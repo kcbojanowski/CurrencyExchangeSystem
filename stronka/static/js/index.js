@@ -1,4 +1,4 @@
-const Selectors = document.querySelectorAll("form select"),
+let Selectors = document.querySelectorAll("form select"),
 fromCurrency = document.querySelector(".from select"),
 amountCurrency = document.querySelector(".amount input"),
 toCurrency = document.querySelector(".to select"),
