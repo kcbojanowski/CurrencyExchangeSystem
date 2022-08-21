@@ -1,19 +1,20 @@
-const dropList = document.querySelectorAll("form select"),
+const Selectors = document.querySelectorAll("form select"),
 fromCurrency = document.querySelector(".from select"),
 amountCurrency = document.querySelector(".amount input"),
 toCurrency = document.querySelector(".to select"),
 getButton = document.querySelector("form .btn-index");
 
-for (let i = 0; i < dropList.length; i++) {
+for (let i = 0; i < Selectors.length; i++) {
     for(let currency_code in country_list){
         let selected = i === 0 ? currency_code === "USD" ? "selected" : "" : currency_code === "PLN" ? "selected" : "";
         let optionTag = `<option value="${currency_code}" ${selected}>${currency_code}</option>`;
-        dropList[i].insertAdjacentHTML("beforeend", optionTag);
+        Selectors[i].insertAdjacentHTML("beforeend", optionTag);
     }
-    dropList[i].addEventListener("change", e =>{
+    Selectors[i].addEventListener("change", e =>{
         loadFlag(e.target);
     });
 }
+
 function loadFlag(element){
     for(let code in country_list){
         if(code === element.value){
@@ -25,16 +26,18 @@ function loadFlag(element){
 window.addEventListener("load", ()=>{
     getExchangeRate();
 });
+
 getButton.addEventListener("click", e =>{
     e.preventDefault();
     getExchangeRate();
 });
 
 const exchangeIcon = document.querySelector("form .exchange");
-exchangeIcon.addEventListener("click", ()=>{
-    let tempCode = fromCurrency.value;
+exchangeIcon.addEventListener("click", e=>{
+    e.preventDefault();
+    let temp = fromCurrency.value;
     fromCurrency.value = toCurrency.value;
-    toCurrency.value = tempCode;
+    toCurrency.value = temp;
     loadFlag(fromCurrency);
     loadFlag(toCurrency);
     getExchangeRate();

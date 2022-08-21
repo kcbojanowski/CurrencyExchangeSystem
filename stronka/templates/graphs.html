@@ -35,26 +35,30 @@
         <section class="graphs1 container-fluid p-0">
             <div class="container text-center">
                         <div class="panel">
-                            <div class="d-flex flex-md-row flex-wrap justify-content-center">
-                                <div class="col-xs-5 from_converter">
-                                    <p>From:</p>
-                                    <div class="select-box">
-                                        <select>
-                                            <option>GPB</option>
-                                        </select>
-                                    </div>
+                            <form action="#">
+                                <div class="drop-list row">
+                                      <div class="from col-md-6">
+                                        <p>From</p>
+                                        <div class="select-box">
+                                          <span class="fi fi-us"></span>
+                                          <select></select>
+                                        </div>
+                                      </div>
+                                      <div class="to col-md-5">
+                                        <p>To</p>
+                                        <div class="select-box">
+                                          <span class="fi fi-pl"></span>
+                                          <select></select>
+                                        </div>
+                                      </div>
                                 </div>
-                                <div class="col-xs-5 to_converter">
-                                    <p>To:</p>
-                                    <div class="select-box">
-                                        <select>
-                                            <option>EUR</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
             </div>
         </section>
     </main>
 {% endblock%}
+{% block scripts %}
+<script src="../static/js/country-list.js"></script>
+<script src="../static/js/graphs.js"></script>
+{% endblock %}
