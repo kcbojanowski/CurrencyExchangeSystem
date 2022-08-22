@@ -47,7 +47,7 @@ function buy() {
         $('#message-input').val('1')
     })
     .fail(function (xhr, status, errorThrown){
-        alert("Cannot add message")
+        alert("Transaction refused.")
     })
 }
 

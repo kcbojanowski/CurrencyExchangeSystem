@@ -1,6 +1,4 @@
 import datetime
-
-import requests
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_user, logout_user, login_required, current_user
 from stronka import app
@@ -9,6 +7,7 @@ from stronka.models import User
 from stronka import db
 from stronka.data_utils.rates import Invoice
 from .models import Wallet
+import requests
 
 
 @app.route('/')
@@ -27,8 +26,7 @@ def home_page():
     response = body.json()
     cad = round(response["rates"]["PLN"], 2)
     date = str(datetime.datetime.now().strftime("%d %b %Y %H:%M"))
-    return render_template('index.html', eur=euros,usd=dollar,funt=funt,cad=cad, today=date)
-
+    return render_template('index.html', eur=euros, usd=dollar, funt=funt, cad=cad, today=date)
 
 
 @app.route('/graphs')
@@ -73,31 +71,30 @@ def signin_page():
 @app.route('/profile', methods=['POST'])
 @login_required
 def profile_page():
-    today = str(datetime.datetime.now().date())
     data = request.get_json(force=True)
-    if 'sell' in data['type']:
-        inv = Invoice(data['code'], today, float(data['content'])).amount_in_pln
-        obj_pln = Wallet(user_id=current_user.id, currency_code='PLN', amount=inv)
-        obj_for = Wallet(user_id=current_user.id, currency_code=data['code'], amount=-float(data['content']))
-        db.session.add(obj_pln)
-        db.session.commit()
-        db.session.add(obj_for)
-        db.session.commit()
-        return '', 204
-    elif 'buy' in data['type']:
-        inv = Invoice(data['code'], today, float(data['content'])).amount_in_pln
-        obj_pln = Wallet(user_id=current_user.id, currency_code='PLN', amount=-inv)
-        obj_for = Wallet(user_id=current_user.id, currency_code=data['code'], amount=float(data['content']))
-        db.session.add(obj_pln)
-        db.session.commit()
-        db.session.add(obj_for)
-        db.session.commit()
-        return '', 204
+    if data:
+        quer = f'SELECT * FROM wallet WHERE (currency_code="{data["code_1"]}" AND user_id = "{current_user.id}");'
+        wallets = db.session.execute(quer)
+        amount_in_wallet = [float(t.amount) for t in wallets]
+        sum_in_curr = sum(amount_in_wallet)
+        if float(sum_in_curr) >= float(data['content']):
+            rate_dict = requests.get(
+                f"https://api.frankfurter.app/latest?amount={data['content']}&from={data['code_1']}&to={data['code_2']}").json()
+            rate = float(rate_dict['rates'][data['code_2']])
+            obj_from = Wallet(user_id=current_user.id, currency_code=data['code_1'], amount=-float(data['content']))
+            obj_to = Wallet(user_id=current_user.id, currency_code=data['code_2'], amount=rate)
+            db.session.add(obj_from)
+            db.session.commit()
+            db.session.add(obj_to)
+            db.session.commit()
+            return '', 204
+        else:
+            return 'Transaction refused.', 400
     else:
         return 'Transaction refused.', 400
 
 
-@app.route('/profile',)
+@app.route('/profile', )
 @login_required
 def profile_page_get():
     return render_template('profile.html')
