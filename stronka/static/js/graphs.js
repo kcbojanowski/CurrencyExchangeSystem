@@ -265,10 +265,10 @@ function wykres (root) {
     }
 
     var currentDate = new Date();
-    currentDate.setDate(currentDate.getDate() - 1)
+    if(currentDate.getHours() < 16)
+        currentDate.setDate(currentDate.getDate() - 1)
     // initially load 50 days
     var dzien = currentDate.getDay()
-    console.log(dzien)
     if (dzien == 0) {
         dzien = 7
     }

@@ -25,6 +25,8 @@ function loadFlag(element){
 }
 window.addEventListener("load", ()=>{
     getExchangeRate();
+     var root = am5.Root.new("chartdiv_index")
+    wykres(root)
 });
 
 getButton.addEventListener("click", e =>{
@@ -74,8 +76,7 @@ function getExchangeRate(){
     });
 }
 
-am5.ready(function() {
-    var root = am5.Root.new("chartdiv_index")
+function wykres (root) {
     root.setThemes([am5themes_Animated.new(root)]);
 
 
@@ -88,7 +89,7 @@ am5.ready(function() {
         pinchZoomX:true
     }));
 
-    chart.get("colors").set("step", 2);
+    chart.get("colors").set("step", 4);
 
     var volumeAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
       renderer: am5xy.AxisRendererY.new(root, {
@@ -124,13 +125,17 @@ am5.ready(function() {
       maxPosition: 0.99
     });
 
-    var firstColor = chart.get("colors").getIndex(0);
+    var color1 = chart.get("colors").getIndex(0);
+    var color2 = chart.get("colors").getIndex(1);
+    var color3 = chart.get("colors").getIndex(2);
+    var color4 = chart.get("colors").getIndex(3);
+
 
     var volumeSeries = chart.series.push(am5xy.LineSeries.new(root, {
       name: "USD",
       clustered: false,
-      fill: firstColor,
-      stroke: firstColor,
+      fill: color1,
+      stroke: color1,
       valueYField: "USD",
       valueXField: "date",
       xAxis: dateAxis,
@@ -140,12 +145,12 @@ am5.ready(function() {
         labelText: "{valueY}"
       })
     }));
-    /*
+
     var volumeSeries1 = chart.series.push(am5xy.LineSeries.new(root, {
       name: "GBP",
       clustered: false,
-      fill: firstColor,
-      stroke: firstColor,
+      fill: color2,
+      stroke: color2,
       valueYField: "GBP",
       valueXField: "date",
       xAxis: dateAxis,
@@ -159,8 +164,8 @@ am5.ready(function() {
     var volumeSeries2 = chart.series.push(am5xy.LineSeries.new(root, {
       name: "EUR",
       clustered: false,
-      fill: firstColor,
-      stroke: firstColor,
+      fill: color3,
+      stroke: color3,
       valueYField: "EUR",
       valueXField: "date",
       xAxis: dateAxis,
@@ -174,8 +179,8 @@ am5.ready(function() {
     var volumeSeries3 = chart.series.push(am5xy.LineSeries.new(root, {
       name: "CAD",
       clustered: false,
-      fill: firstColor,
-      stroke: firstColor,
+      fill: color4,
+      stroke: color4,
       valueYField: "CAD",
       valueXField: "date",
       xAxis: dateAxis,
@@ -185,16 +190,34 @@ am5.ready(function() {
         labelText: "{valueY}"
       })
     }));
-    */
+
     var volumeLegend = volumeAxis.axisHeader.children.push(
       am5.Legend.new(root, {
         useDefaultMarker: true
       })
     );
     volumeLegend.data.setAll([volumeSeries]);
-    //volumeLegend.data.setALL([volumeSeries1]);
-    //volumeLegend.data.setALL([volumeSeries2]);
-    //volumeLegend.data.setALL([volumeSeries3]);
+
+    var volumeLegend1 = volumeAxis.axisHeader.children.push(
+      am5.Legend.new(root, {
+        useDefaultMarker: true
+      })
+    );
+    volumeLegend1.data.setAll([volumeSeries1]);
+
+    var volumeLegend2 = volumeAxis.axisHeader.children.push(
+      am5.Legend.new(root, {
+        useDefaultMarker: true
+      })
+    );
+    volumeLegend2.data.setAll([volumeSeries2]);
+
+    var volumeLegend3 = volumeAxis.axisHeader.children.push(
+      am5.Legend.new(root, {
+        useDefaultMarker: true
+      })
+    );
+    volumeLegend3.data.setAll([volumeSeries3]);
 
     chart.leftAxesContainer.set("layout", root.verticalLayout);
 
@@ -243,23 +266,23 @@ am5.ready(function() {
             dateAxis.setPrivate("max", max);   // needed in order not to animate
 
             volumeSeries.data.setAll(data);
-            //volumeSeries1.data.setAll(data);
-            //volumeSeries2.data.setAll(data);
-            //volumeSeries3.data.setAll(data);
+            volumeSeries1.data.setAll(data);
+            volumeSeries2.data.setAll(data);
+            volumeSeries3.data.setAll(data);
             dateAxis.zoom(0, 1, 0);
           }
         }
         else if (side == "left") {
           // save dates of first items so that duplicates would not be added
           seriesFirst[volumeSeries.uid] = volumeSeries.data.getIndex(0).date;
-         // seriesFirst[volumeSeries1.uid] = volumeSeries1.data.getIndex(0).date;
-          //seriesFirst[volumeSeries2.uid] = volumeSeries2.data.getIndex(0).date;
-          //seriesFirst[volumeSeries3.uid] = volumeSeries3.data.getIndex(0).date;
+          seriesFirst[volumeSeries1.uid] = volumeSeries1.data.getIndex(0).date;
+          seriesFirst[volumeSeries2.uid] = volumeSeries2.data.getIndex(0).date;
+          seriesFirst[volumeSeries3.uid] = volumeSeries3.data.getIndex(0).date;
           for (var i = data.length - 1; i >= 0; i--) {
             var date = data[i].date;
             if (seriesFirst[volumeSeries.uid] > date) {
               volumeSeries.data.unshift(data[i]);
-            }/*
+            }
             if (seriesFirst[volumeSeries1.uid] > date) {
               volumeSeries1.data.unshift(data[i]);
             }
@@ -268,7 +291,7 @@ am5.ready(function() {
             }
             if (seriesFirst[volumeSeries3.uid] > date) {
               volumeSeries3.data.unshift(data[i]);
-            }*/
+            }
           }
 
           // update axis min
@@ -282,16 +305,16 @@ am5.ready(function() {
         else if (side == "right") {
           // save dates of last items so that duplicates would not be added
           seriesLast[volumeSeries.uid] = volumeSeries.data.getIndex(volumeSeries.data.length - 1).date;
-          //seriesLast[volumeSeries1.uid] = volumeSeries1.data.getIndex(volumeSeries1.data.length - 1).date;
-          //seriesLast[volumeSeries2.uid] = volumeSeries2.data.getIndex(volumeSeries2.data.length - 1).date;
-          //seriesLast[volumeSeries3.uid] = volumeSeries3.data.getIndex(volumeSeries3.data.length - 1).date;
+          seriesLast[volumeSeries1.uid] = volumeSeries1.data.getIndex(volumeSeries1.data.length - 1).date;
+          seriesLast[volumeSeries2.uid] = volumeSeries2.data.getIndex(volumeSeries2.data.length - 1).date;
+          seriesLast[volumeSeries3.uid] = volumeSeries3.data.getIndex(volumeSeries3.data.length - 1).date;
 
           for (var i = 0; i < data.length; i++) {
             var date = data[i].date;
             // only add if last items date is smaller then newly added items date
             if (seriesLast[volumeSeries.uid] < date) {
               volumeSeries.data.push(data[i]);
-            }/*
+            }
             if (seriesLast[volumeSeries1.uid] < date) {
               volumeSeries1.data.push(data[i]);
             }
@@ -300,7 +323,7 @@ am5.ready(function() {
             }
             if (seriesLast[volumeSeries3.uid] < date) {
               volumeSeries3.data.push(data[i]);
-            }*/
+            }
           }
           // update axis max
           max = Math.min(max, absoluteMax);
@@ -335,6 +358,8 @@ am5.ready(function() {
     }
 
     var currentDate = new Date();
+    if(currentDate.getHours() < 16)
+        currentDate.setDate(currentDate.getDate() - 1)
     // initially load 50 days
     var dzien = currentDate.getDay()
     if(dzien == 0){ dzien = 7}
@@ -372,4 +397,4 @@ am5.ready(function() {
     loadData(min, max, "none");
 
     chart.appear(1000, 500);
-});
+}
