@@ -1,5 +1,6 @@
 import datetime
 
+import requests
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_user, logout_user, login_required, current_user
 from stronka import app
@@ -13,12 +14,19 @@ from .models import Wallet
 @app.route('/')
 @app.route('/home')
 def home_page():
-    today = str(datetime.datetime.now().date())
+    body = requests.get('https://api.frankfurter.app/latest?from=EUR&to=PLN')
+    response = body.json()
+    euros = round(response["rates"]["PLN"], 2)
+    body = requests.get('https://api.frankfurter.app/latest?from=USD&to=PLN')
+    response = body.json()
+    dollar = round(response["rates"]["PLN"], 2)
+    body = requests.get('https://api.frankfurter.app/latest?from=GBP&to=PLN')
+    response = body.json()
+    funt = round(response["rates"]["PLN"], 2)
+    body = requests.get('https://api.frankfurter.app/latest?from=CAD&to=PLN')
+    response = body.json()
+    cad = round(response["rates"]["PLN"], 2)
     date = str(datetime.datetime.now().strftime("%d %b %Y %H:%M"))
-    euros = Invoice('EUR', today, 1)
-    dollar = Invoice('USD', today, 1)
-    funt = Invoice('GBP', today, 1)
-    cad = Invoice('CAD', today, 1)
     return render_template('index.html', eur=euros,usd=dollar,funt=funt,cad=cad, today=date)
 
 

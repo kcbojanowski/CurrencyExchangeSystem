@@ -1,4 +1,11 @@
 {% extends 'base.html' %}
+{% block links %}
+    <link rel="stylesheet" href="../static/css/graphs.css">
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+{% endblock %}
+
 {% block navbar %}
     <li class="nav-item active">
         <a class="nav-link" href="{{ url_for('home_page') }}">HOME
@@ -66,7 +73,6 @@
                                 </div>
                                 <button class="btn-index">Get Exchange Rate</button>
                               </form>
-
                         </div>
                     </div>
                     <div class="col-md-6 col-12">
@@ -96,19 +102,19 @@
                 <div class="d-flex lex-wrap justify-content-center">
                     <div class="currency_rect">
                         <h3>USD <span class="fi fi-us"></span></h3>
-                        <h4>{{ usd.amount_in_pln}} zl</h4>
+                        <h4>{{ usd }} PLN</h4>
                     </div>
                     <div class="currency_rect">
                         <h3>GBP <span class="fi fi-gb"></span></h3>
-                        <h4>{{ funt.amount_in_pln}} zl</h4>
+                        <h4>{{ funt }} PLN</h4>
                     </div>
                     <div class="currency_rect">
                         <h3>EUR <span class="fi fi-eu"></span></h3>
-                        <h4>{{ eur.amount_in_pln}} zl</h4>
+                        <h4>{{ eur }} PLN</h4>
                     </div>
                       <div class="currency_rect">
                         <h3>CAD <span class="fi fi-ca"></span></h3>
-                          <h4>{{ cad.amount_in_pln}} zl</h4>
+                          <h4>{{ cad }} PLN</h4>
                     </div>
                 </div>
             </div>
@@ -118,16 +124,14 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12">
                     <h1>Graphs</h1>
-                    <div class="graph">
-
-                    </div>
                 </div>
             </div>
+            <div id="chartdiv_index"></div>
         </section>
     </main>
 {% endblock %}
 
 {% block scripts %}
 <script src="../static/js/country-list.js"></script>
-<script src="../static/js/index.js"></script>
+<script src="../static/js/home.js"></script>
 {% endblock %}

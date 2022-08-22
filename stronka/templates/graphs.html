@@ -39,27 +39,29 @@
             <div class="container text-center">
                         <div class="panel">
                             <form action="#">
-                                <div class="drop-list row">
-                                      <div class="from col-md-6">
-                                        <p>From</p>
-                                        <div class="select-box">
-                                          <span class="fi fi-us"></span>
-                                          <select></select>
-                                        </div>
-                                      </div>
-                                      <div class="to col-md-5">
-                                        <p>To</p>
-                                        <div class="select-box">
-                                          <span class="fi fi-pl"></span>
-                                          <select></select>
-                                        </div>
-                                      </div>
+                                <div class="drop-list">
+                                  <div class="from">
+                                    <p>From</p>
+                                    <div class="select-box">
+                                      <span class="fi fi-us"></span>
+                                      <select></select>
+                                    </div>
+                                  </div>
+                                  <button class="exchange"><i class="fas fa-exchange-alt"></i></button>
+                                  <div class="to">
+                                    <p>To</p>
+                                    <div class="select-box">
+                                      <span class="fi fi-pl"></span>
+                                      <select></select>
+                                    </div>
+                                  </div>
                                 </div>
-                            </form>
+                                <button class="btn-index">-></button>
+                              </form>
                         </div>
             </div>
         </section>
-        <div id="chartdiv"></div>
+        <div id="chartdiv"><test/></div>
     </main>
 {% endblock%}
 {% block scripts %}
