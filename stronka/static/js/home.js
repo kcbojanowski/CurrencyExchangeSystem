@@ -239,7 +239,7 @@ function wykres (root) {
         for (const [key, value] of Object.entries(
             jsonCurrencyData["rates"]
         )) {
-            pom = new Date(key.slice(0,4), parseInt(key.slice(5,7))-1, parseInt(key.slice(8,10))-1,0,0,0,0).getTime()
+            pom = new Date(key.slice(0,4), parseInt(key.slice(5,7))-1, parseInt(key.slice(8,10)),0,0,0,0).getTime()
             data.push({"date":pom, "USD":value["USD"], "GBP":value["GBP"], "EUR":value["EUR"], "CAD":value["CAD"]});
         }
 

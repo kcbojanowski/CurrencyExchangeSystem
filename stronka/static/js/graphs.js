@@ -25,8 +25,6 @@ function loadFlag(element){
 var roots = []
 
 window.addEventListener("load", ()=>{
-    loadFlag(fromCurrency)
-    loadFlag(toCurrency)
     var root = am5.Root.new("chartdiv")
     roots.push(root)
     wykres(root)
@@ -49,6 +47,8 @@ exchangeIcon.addEventListener("click", e=>{
 })
 
 function zmiana(){
+    const TitleTxt = document.querySelector(".title-graph h4");
+    TitleTxt.innerText = `1.00 ${fromCurrency.value} =`
     roots[0].dispose()
     roots.shift()
     var root = am5.Root.new("chartdiv")
@@ -168,7 +168,7 @@ function wykres (root) {
             for (const [key, value] of Object.entries(
                 jsonCurrencyData["rates"]
             )) {
-                pom = new Date(key.slice(0, 4), parseInt(key.slice(5, 7)) - 1, parseInt(key.slice(8, 10)) - 1, 0, 0, 0, 0).getTime()
+                pom = new Date(key.slice(0, 4), parseInt(key.slice(5, 7)) - 1, parseInt(key.slice(8, 10)), 0, 0, 0, 0).getTime()
                 data.push({"date": pom, "value": value[toCurrency.value]});
             }
 

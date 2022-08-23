@@ -102,7 +102,8 @@ def profile_page_get():
 
 @app.route('/table')
 def table_page():
-    return render_template('table.html')
+    date = str(datetime.datetime.now().strftime("%d %b %Y %H:%M"))
+    return render_template('table.html', today=date)
 
 
 @app.route('/logout')

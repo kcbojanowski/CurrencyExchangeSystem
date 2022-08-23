@@ -2,15 +2,37 @@
     font-family: Poppins, sans-serif;
 }
 
-.graphs1 .panel .col-xs-5 > p {
-    font-size: 3vmin;
-    padding-top: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
+.graphs1 .panel{
+      background: #eeeeee;
+      width: 22rem;
+      padding: 3vmin;
+      margin: 50px;
+      font-weight: bold;
+      border-radius: 25px;
+}
+.graphs1 .panel .select-box {
+    margin: 15px;
+}
+
+.graphs1 .from {
+    margin-left: 10px;
+}
+.graphs1 .panel .btn-index {
+      margin-right: -36px;
+        margin-left: 31px;
+}
+.title-graph h4{
+    position: absolute;
+    margin-left: 70px;
+    margin-bottom: -10px;
+    font-weight: bold;
 }
 
 #chartdiv {
-  width: 100%;
+  margin: 30px;
+  box-shadow: 7.0px 13.9px 13.9px hsl(0deg 0% 0% / 0.28);
+  border-radius: 10px;
+  width: 97%;
   height: 500px;
   max-width: 100%;
 }

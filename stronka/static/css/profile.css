@@ -119,7 +119,6 @@
 	  background-color: white;
 	  box-shadow: 7.0px 13.9px 13.9px hsl(0deg 0% 0% / 0.28);
 	  border-radius: 25px;
-	  margin-left: 60px;
 }
 
 .amount_wallet {
@@ -136,13 +135,17 @@
 
 .rightside .business {
 	margin-top: 50px;
-	margin-left: 60px;
 }
 
 .business .bus-buttons {
-	margin-top: 20px;
+	margin-top: 50px;
 }
 
+.business .drop-list {
+	margin-top: 20px;
+	color: #2eb7a5;
+	font-weight: bold;
+}
 .button-bus {
   background: #239889;
   border-radius: 999px;
