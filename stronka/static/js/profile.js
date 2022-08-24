@@ -1,3 +1,4 @@
+Busbutton  = document.querySelector(".bus-buttons");
 
 function replaceWal() {
     document.getElementById("divhis").style.display="none";
@@ -28,9 +29,11 @@ function loadFlag(element){
     }
 }
 
-window.addEventListener("load", ()=>{
-    loadSlider();
+Busbutton.addEventListener("click", e =>{
+    e.preventDefault();
+    buy();
 });
+
 
 function buy() {
     let content = $('#message-input').val();
