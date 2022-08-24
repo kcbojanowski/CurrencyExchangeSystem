@@ -19,8 +19,9 @@
 	padding-bottom: 200px;
 }
 .profile-image{
-	border-radius: 25px;
-	border: 2px solid #38DEC8;
+	padding: 10px;
+	border-radius: 30px;
+	margin-right: 40px;
 }
 .name{
 	font-size: 20px;
@@ -116,7 +117,7 @@
 
 	  width:500px;
 	  display:block;
-	  background-color: white;
+	  background-color: #eee;
 	  box-shadow: 7.0px 13.9px 13.9px hsl(0deg 0% 0% / 0.28);
 	  border-radius: 25px;
 }
