@@ -28,6 +28,10 @@ function loadFlag(element){
     }
 }
 
+window.addEventListener("load", ()=>{
+    loadSlider();
+});
+
 function buy() {
     let content = $('#message-input').val();
     let code_1 = $('#UserSelect_1').val();
@@ -51,14 +55,13 @@ function buy() {
     window.location.reload(true);
 }
 
-
 $('.slider-top').slick({
-   slidesToShow: 1,
-   slidesToScroll: 1,
-   arrows: false,
-   fade: true,
-   asNavFor: '.slider-bottom'
- });
+       slidesToShow: 1,
+       slidesToScroll: 1,
+       arrows: false,
+       fade: true,
+       asNavFor: '.slider-bottom'
+});
 
  $('.slider-bottom').slick({
    slidesToShow: 3,

@@ -67,40 +67,9 @@
 
                         <div class="main-wallet text-center">
                             <div class="slider slider-top d-flex lex-wrap justify-content-center">
-                                <div class="currency_rect">
-                                    <h3 class="">USD <span class="fi fi-us"></span></h3>
-                                    <span class="amount_wallet">21545.37$</span>
-                                </div>
-                                <div class="currency_rect">
-                                    <h3 >GBD <span class="fi fi-gb"></span></h3>
-                                    <span class="amount_wallet">420.37$</span>
-                                </div>
-                                <div class="currency_rect">
-                                    <h3 >PLN <span class="fi fi-pl"></span></h3>
-                                    <span class="amount_wallet">69.37$</span>
-                                </div>
-                                <div class="currency_rect">
-                                    <h3 >AUE <span class="fi fi-au"></span></h3>
-                                    <span class="amount_wallet">21.37$</span>
-                                </div>
                             </div>
                             <div class="slider slider-bottom d-flex lex-wrap justify-content-center">
-                                <div class="currency_rect">
-                                    <h3>USD <span class="fi fi-us"></span></h3>
-                                    <span>21545.37$</span>
-                                </div>
-                                <div class="currency_rect">
-                                    <h3 >GBD <span class="fi fi-gb"></span></h3>
-                                    <span>420.37$</span>
-                                </div>
-                                <div class="currency_rect">
-                                    <h3 >PLN <span class="fi fi-pl"></span></h3>
-                                    <span>69.37$</span>
-                                </div>
-                                <div class="currency_rect">
-                                    <h3 >AUE <span class="fi fi-au"></span></h3>
-                                    <span>21.37$</span>
-                                </div>
+
                             </div>
                         </div>
 
@@ -221,5 +190,28 @@
 {% block scripts %}
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 <script src="../static/js/country-list.js"></script>
+<script>
+
+    const topSliderTxt = document.querySelector(".slider-top");
+    const botSliderTxt = document.querySelector(".slider-bottom");
+
+    if (topSliderTxt !== "" && botSliderTxt !== ""){
+                topSliderTxt.innerHTML = "";
+                botSliderTxt.innerHTML = ""
+    }
+    currency_dict = {{ dict_wal | tojson }}
+    for(let code in currency_dict) {
+        let rect = `<div class="currency_rect">
+                        <h3>${code} <span class="fi fi-${country_list[code]}"></span></h3>
+                        <span class="amount_wallet">${currency_dict[code]}</span>
+                    </div>`
+
+        topSliderTxt.insertAdjacentHTML("beforeend", rect);
+        botSliderTxt.insertAdjacentHTML("beforeend", rect);
+    }
+
+
+</script>
 <script src="../static/js/profile.js"></script>
+
 {% endblock %}
