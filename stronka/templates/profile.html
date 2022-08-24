@@ -48,7 +48,7 @@
 				        </div>
 				        <div class="budget d-flex flex-column text-right mr-2">
                             <span class="current-balance">Current Balance</span>
-                            <span class="amount"><span class="dollar-sign">zl </span>{{ balance }}</span>
+                            <span class="amount"><span class="dollar-sign">PLN </span>{{ balance }}</span>
                         </div>
                     </div>
 
@@ -120,12 +120,7 @@
                                     <th>Amount</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr class="table-row">
-                                    <td>14:20, 20-03-22</td>
-                                    <td><span class="fi fi-pl"></span> PLN</td>
-                                    <td><span class="fi fi-gb"></span> GBP</td>
-                                </tr>
+                            <tbody id="tabelka">
                             </tbody>
                         </table>
                     </div>
@@ -157,6 +152,26 @@
 
         topSliderTxt.insertAdjacentHTML("beforeend", rect);
         botSliderTxt.insertAdjacentHTML("beforeend", rect);
+    }
+
+
+</script>
+
+<script>
+
+    const tab = document.querySelector("#tabelka");
+    currency_hist = {{ hist | tojson }}
+    console.log(currency_hist)
+     for (const [key, value] of Object.entries(
+                currency_hist
+            )) {
+        let rect_1 = `<tr class="table-row">
+                        <td>${value['date']}</td>
+                        <td>${value['code']} <span class="fi fi-${country_list[value['code']]}""></span></td>
+                        <td>${value['amount']}</td>
+                    </tr>`
+
+        tab.insertAdjacentHTML("beforeend", rect_1);
     }
 
 

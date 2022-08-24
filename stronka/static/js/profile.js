@@ -49,10 +49,10 @@ function buy() {
     .done(function (data){
         $('#message-input').val('1')
     })
-    .fail(function (xhr, status, errorThrown){
+    .fail(function (xhr, status, errorThrown) {
         alert("Transaction refused.")
     })
-    window.location.reload(true);
+    window.location.reload(true)
 }
 
 $('.slider-top').slick({
