@@ -1,5 +1,5 @@
 import datetime
-from flask import render_template, redirect, url_for, flash, request
+from flask import render_template, redirect, url_for, flash, request, jsonify
 from flask_login import login_user, logout_user, login_required, current_user
 from stronka import app
 from stronka.forms import RegisterForm, LoginForm
@@ -81,8 +81,8 @@ def profile_page():
             rate_dict = requests.get(
                 f"https://api.frankfurter.app/latest?amount={data['content']}&from={data['code_1']}&to={data['code_2']}").json()
             rate = float(rate_dict['rates'][data['code_2']])
-            obj_from = Wallet(user_id=current_user.id, currency_code=data['code_1'], amount=-float(data['content']))
-            obj_to = Wallet(user_id=current_user.id, currency_code=data['code_2'], amount=rate)
+            obj_from = Wallet(user_id=current_user.id, currency_code=data['code_1'], amount=-round(float(data['content']), 2))
+            obj_to = Wallet(user_id=current_user.id, currency_code=data['code_2'], amount=round(rate,2))
             db.session.add(obj_from)
             db.session.commit()
             db.session.add(obj_to)
@@ -94,10 +94,36 @@ def profile_page():
         return 'Transaction refused.', 400
 
 
-@app.route('/profile', )
+@app.route('/profile')
 @login_required
 def profile_page_get():
-    return render_template('profile.html')
+    query1 = f'SELECT currency_code FROM wallet WHERE  user_id = "{current_user.id}";'
+    codes_in_wallet = db.session.execute(query1)
+    currencies = list(set([i.currency_code for i in codes_in_wallet]))
+    dict_wal = {}
+    balance = 0
+    for curr in currencies:
+        quer = f'SELECT * FROM wallet WHERE (currency_code="{curr}" AND user_id = "{current_user.id}");'
+        wallets = db.session.execute(quer)
+        amount_in_wallet = [float(t.amount) for t in wallets]
+        sum_in_curr = sum(amount_in_wallet)
+        dict_wal.update({curr: round(sum_in_curr, 2)})
+        if 'PLN' not in curr:
+            xd = f'https://api.frankfurter.app/latest?from={curr}&to=PLN'
+            body = requests.get(xd)
+            response = body.json()
+            value = round(response["rates"]["PLN"], 2)
+        else:
+            value = 1
+        balance += sum_in_curr*value
+    balance = round(balance, 2)
+    query2 = f'SELECT * FROM wallet WHERE  user_id = "{current_user.id}";'
+    all_transactions = db.session.execute(query2)
+    history = []
+    for row in all_transactions:
+        history_dict = {'date': row.transaction_at, 'code': row.currency_code, 'amount': row.amount}
+        history.append(history_dict)
+    return render_template('profile.html', dict_wal=dict_wal, balance=balance, history=history)
 
 
 @app.route('/table')
