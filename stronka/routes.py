@@ -25,7 +25,7 @@ def home_page():
     body = requests.get('https://api.frankfurter.app/latest?from=CAD&to=PLN')
     response = body.json()
     cad = round(response["rates"]["PLN"], 2)
-    date = str(datetime.datetime.now().strftime("%d %b %Y %H:%M"))
+    date = str(response["date"])
     return render_template('index.html', eur=euros, usd=dollar, funt=funt, cad=cad, today=date)
 
 
@@ -60,6 +60,14 @@ def signin_page():
         db.session.add(user_to_create)
         db.session.commit()
         login_user(user_to_create)
+        waluty = ["PLN", "GBP", "USD", "CAD"]
+        for w in waluty:
+            if w == "USD":
+                obj_to = Wallet(user_id=current_user.id, currency_code="USD", amount=100)
+            else:
+                obj_to = Wallet(user_id=current_user.id, currency_code=w, amount=0)
+            db.session.add(obj_to)
+            db.session.commit()
         flash(f"Account created successfully! You are now logged in as {user_to_create.username}", category='success')
         return redirect(url_for('home_page'))
     if form.errors != {}:  # If there are not errors from the validations
@@ -128,7 +136,9 @@ def profile_page_get():
 
 @app.route('/table')
 def table_page():
-    date = str(datetime.datetime.now().strftime("%d %b %Y %H:%M"))
+    body = requests.get('https://api.frankfurter.app/latest?from=EUR&to=PLN')
+    response = body.json()
+    date = str(response["date"])
     return render_template('table.html', today=date)
 
 
