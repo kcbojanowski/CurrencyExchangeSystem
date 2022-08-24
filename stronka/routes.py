@@ -90,7 +90,7 @@ def profile_page():
                 f"https://api.frankfurter.app/latest?amount={data['content']}&from={data['code_1']}&to={data['code_2']}").json()
             rate = float(rate_dict['rates'][data['code_2']])
             obj_from = Wallet(user_id=current_user.id, currency_code=data['code_1'], amount=-round(float(data['content']), 2))
-            obj_to = Wallet(user_id=current_user.id, currency_code=data['code_2'], amount=round(rate,2))
+            obj_to = Wallet(user_id=current_user.id, currency_code=data['code_2'], amount=round(rate, 2))
             db.session.add(obj_from)
             db.session.commit()
             db.session.add(obj_to)
@@ -129,9 +129,9 @@ def profile_page_get():
     all_transactions = db.session.execute(query2)
     history = []
     for row in all_transactions:
-        history_dict = {'date': row.transaction_at, 'code': row.currency_code, 'amount': row.amount}
+        history_dict = {'date': row.transaction_at[:-7], 'code': row.currency_code, 'amount': round(row.amount, 2)}
         history.append(history_dict)
-    return render_template('profile.html', dict_wal=dict_wal, balance=balance, history=history)
+    return render_template('profile.html', dict_wal=dict_wal, balance=balance, hist=history[::-1])
 
 
 @app.route('/table')
