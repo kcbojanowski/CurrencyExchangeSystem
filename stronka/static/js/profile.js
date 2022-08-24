@@ -7,8 +7,7 @@ function replaceHis() {
     document.getElementById("divwal").style.display = "none";
     document.getElementById("divhis").style.display = "block";
 }
-const SelectGraph = document.querySelectorAll("form select"),
-graphButton = document.querySelector("form .btn-index");
+const SelectGraph = document.querySelectorAll("form select");
 
 for (let i = 0; i < SelectGraph.length; i++) {
     for(let currency_code in country_list){
@@ -49,6 +48,7 @@ function buy() {
     .fail(function (xhr, status, errorThrown){
         alert("Transaction refused.")
     })
+    window.location.reload(true);
 }
 
 
