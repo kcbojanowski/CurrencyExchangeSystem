@@ -105,6 +105,13 @@ def profile_page():
 @app.route('/profile')
 @login_required
 def profile_page_get():
+    query0 = f'SELECT transaction_at FROM wallet WHERE  user_id = "{current_user.id}" AND currency_code="USD" AND amount=100;'
+    starter = db.session.execute(query0)
+    start_date = [i.transaction_at for i in starter]
+    date = start_date[0][:10]
+    rate_dict = requests.get(
+        f"https://api.frankfurter.app/{date}?from=USD&to=PLN").json()
+    rate = float(rate_dict['rates']['PLN'])*100
     query1 = f'SELECT currency_code FROM wallet WHERE  user_id = "{current_user.id}";'
     codes_in_wallet = db.session.execute(query1)
     currencies = list(set([i.currency_code for i in codes_in_wallet]))
@@ -125,13 +132,14 @@ def profile_page_get():
             value = 1
         balance += sum_in_curr*value
     balance = round(balance, 2)
+    profit = balance - rate
     query2 = f'SELECT * FROM wallet WHERE  user_id = "{current_user.id}";'
     all_transactions = db.session.execute(query2)
     history = []
     for row in all_transactions:
         history_dict = {'date': row.transaction_at[:-7], 'code': row.currency_code, 'amount': round(row.amount, 2)}
         history.append(history_dict)
-    return render_template('profile.html', dict_wal=dict_wal, balance=balance, hist=history[::-1])
+    return render_template('profile.html', dict_wal=dict_wal, balance=balance, hist=history[::-1], profit=profit)
 
 
 @app.route('/table')
