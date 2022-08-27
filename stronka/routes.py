@@ -137,8 +137,9 @@ def profile_page_get():
     all_transactions = db.session.execute(query2)
     history = []
     for row in all_transactions:
-        history_dict = {'date': row.transaction_at[:-7], 'code': row.currency_code, 'amount': round(row.amount, 2)}
-        history.append(history_dict)
+        if row.amount != 0:
+            history_dict = {'date': row.transaction_at[:-7], 'code': row.currency_code, 'amount': round(row.amount, 2)}
+            history.append(history_dict)
     return render_template('profile.html', dict_wal=dict_wal, balance=balance, hist=history[::-1], profit=profit)
 
 
