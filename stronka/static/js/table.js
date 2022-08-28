@@ -46,7 +46,7 @@ function loadTable(){
                 if(code !== CurrencySelect.value){
                     let trcurrency = `<tr>
                                         <td><span class="fi fi-${country_list[code]}"></span> ${code}</td>
-                                        <td><p>${data.rates[code]}</p></td>
+                                        <td><p>${parseFloat(data.rates[code]).toFixed(3)}</p></td>
                                       </tr>`
                     TableTxt.insertAdjacentHTML("beforeend", trcurrency);
                 }

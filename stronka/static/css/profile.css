@@ -22,6 +22,7 @@
 	padding: 10px;
 	border-radius: 30px;
 	margin-right: 40px;
+	width: 200px;
 }
 .name{
 	font-size: 20px;
@@ -39,10 +40,15 @@
 .middle-prof{
 	background-color: #eee;
 	border-radius: 12px;
+	width: 300px;
     margin-bottom: 20px;
 }
 .middle-prof:hover {
 	border: 1px solid #38DEC8;
+}
+
+.budget {
+	margin-left: 15px;
 }
 
 .dollar-div{

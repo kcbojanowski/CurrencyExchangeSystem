@@ -36,7 +36,9 @@
         <section class="profile1 row container-fluid">
             <div  class="container leftside d-flex justify-content-center mt-5 col-md-2">
                 <div class="top-prof">
-                    <img src="../static/img/profile-picture.jpg" class="img-fluid profile-image" width="200">
+                    <div class="prof-div">
+                        <img src="../static/img/profile-picture.jpg" class="img-fluid profile-image">
+                    </div>
                     <div class="ml-3">
                         <h5 class="name">{{current_user.username}}</h5>
                         <p class="mail">{{current_user.email_address}}</p>
@@ -187,18 +189,22 @@
 <script>
 
     const profitTxt = document.querySelector("#profit");
+    const profile = document.querySelector(".prof-div");
     percentData = {{profit | tojson}}
     if(percentData > 0.0){
         profitTxt.innerHTML = `${percentData}% <i class="fa-solid fa-caret-up"></i>`;
         profitTxt.style.color = "green";
+        profile.innerHTML = `<img src="../static/img/stonks.png" class="img-fluid profile-image">`
     }
     else if(percentData < 0.0){
         profitTxt.innerHTML = `${percentData}% <i class="fa-solid fa-caret-down"></i>`;
         profitTxt.style.color = "red";
+        profile.innerHTML = `<img src="../static/img/not_stonks.png" class="img-fluid profile-image">`
     }
     else {
         profitTxt.innerHTML = `${percentData}% <i class="fa-solid fa-minus"></i>`;
         profitTxt.style.color = "grey";
+        profile.innerHTML = `<img src="../static/img/mid.png" class="img-fluid profile-image">`
     }
 
 
