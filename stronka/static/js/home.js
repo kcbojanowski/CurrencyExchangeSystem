@@ -372,7 +372,7 @@ function wykres (root) {
     var max = currentDate.getTime()
     // limit to the data's extremes
     var absoluteMax = max;
-    var absoluteMin = new Date(2000,0,1,0,0,0,0);
+    var absoluteMin = new Date(1999, 0, 4, 16, 0, 0, 0);
 
     // load data when panning ends
     chart.events.on("panended", function() {

@@ -30,7 +30,6 @@ function loadFlag(element){
 }
 
 Busbutton.addEventListener("click", e =>{
-    e.preventDefault();
     buy();
 });
 
@@ -48,6 +47,9 @@ function buy() {
         'code_2': code_2,
         }),
         contentType: "application/json",
+        success: function() {
+        location.reload();
+    }
     })
     .done(function (data){
         $('#message-input').val('1')
@@ -55,7 +57,6 @@ function buy() {
     .fail(function (xhr, status, errorThrown) {
         alert("Transaction refused.")
     })
-    window.location.reload(true)
 }
 
 $('.slider-top').slick({

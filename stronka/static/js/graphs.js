@@ -42,7 +42,7 @@ exchangeIcon.addEventListener("click", e=>{
     fromCurrency.value = toCurrency.value;
     toCurrency.value = temp;
     loadFlag(fromCurrency);
-    loadFlag(toCurrency);;
+    loadFlag(toCurrency);
     zmiana()
 })
 
@@ -57,6 +57,15 @@ function zmiana(){
 }
 
 function wykres (root) {
+    if(fromCurrency.value == toCurrency.value){
+        alert("NIE WOLNO")
+        fromCurrency.value = "USD"
+        toCurrency.value = "PLN"
+        loadFlag(fromCurrency);
+        loadFlag(toCurrency);
+        const TitleTxt = document.querySelector(".title-graph h4");
+        TitleTxt.innerText = `1.00 ${fromCurrency.value} =`
+    }
     root.setThemes([am5themes_Animated.new(root)]);
     var chart = root.container.children.push(am5xy.XYChart.new(root, {
         panX: false,
@@ -281,7 +290,7 @@ function wykres (root) {
     var max = currentDate.getTime()
     // limit to the data's extremes
     var absoluteMax = max;
-    var absoluteMin = new Date(2000, 0, 1, 0, 0, 0, 0);
+    var absoluteMin = new Date(1999, 0, 4, 16, 0, 0, 0);
 
     // load data when panning ends
     chart.events.on("panended", function () {
