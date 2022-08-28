@@ -80,6 +80,11 @@
 	color: #2eb7a5;
 	font-weight: bold;
 }
+
+#profit {
+	margin-top:20px;
+	font-weight: bold;
+}
 .dollar-sign{
 	font-size: 16px;
 	color: #272727;

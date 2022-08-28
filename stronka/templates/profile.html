@@ -49,11 +49,14 @@
 				        </div>
 				        <div class="budget d-flex flex-column text-right mr-2">
                             <span class="current-balance">Current Balance</span>
-                            <span class="amount"><span class="dollar-sign">PLN </span>{{ balance }}</span>
-                        </div>
-                        <div class="budget d-flex flex-column text-right mr-2">
-                            <span class="current-balance">Current Profit</span>
-                            <span class="amount"><span class="dollar-sign">PLN </span>{{ profit }}</span>
+                            <div class="row text-right">
+                                <div class=" budget d-flex mr-2">
+                                <span class="amount"><span class="dollar-sign">PLN </span>{{ balance }}</span>
+                                </div>
+                                <div class="d-flex">
+                                <span id="profit">32.0% <i class="fa-solid fa-caret-up"></i></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -166,7 +169,6 @@
 
     const tab = document.querySelector("#tabelka");
     currency_hist = {{ hist | tojson }}
-    console.log(currency_hist)
      for (const [key, value] of Object.entries(
                 currency_hist
             )) {
@@ -174,13 +176,34 @@
                         <td>${value['date']}</td>
                         <td>${value['code']} <span class="fi fi-${country_list[value['code']]}""></span></td>
                         <td>${value['amount']}</td>
-                    </tr>`
+                    </tr>`;
 
         tab.insertAdjacentHTML("beforeend", rect_1);
     }
 
 
 </script>
+
+<script>
+
+    const profitTxt = document.querySelector("#profit");
+    percentData = {{profit | tojson}}
+    if(percentData > 0.0){
+        profitTxt.innerHTML = `${percentData}% <i class="fa-solid fa-caret-up"></i>`;
+        profitTxt.style.color = "green";
+    }
+    else if(percentData < 0.0){
+        profitTxt.innerHTML = `${percentData}% <i class="fa-solid fa-caret-down"></i>`;
+        profitTxt.style.color = "red";
+    }
+    else {
+        profitTxt.innerHTML = `${percentData}% <i class="fa-solid fa-minus"></i>`;
+        profitTxt.style.color = "grey";
+    }
+
+
+</script>
+
 <script src="../static/js/profile.js"></script>
 
 {% endblock %}
