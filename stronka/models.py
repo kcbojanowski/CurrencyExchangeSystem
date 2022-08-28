@@ -35,5 +35,5 @@ class Wallet(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     currency_code = db.Column(db.String(3), nullable=False)
     amount = db.Column(db.DECIMAL(6, 2))
-    transaction_at = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.utcnow)
+    transaction_at = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
     user = db.relationship("User", back_populates="wallet", lazy=False)
