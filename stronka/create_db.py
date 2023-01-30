@@ -1,3 +1,4 @@
-from stronka import db
+from stronka import db, app
 
-db.create_all()
+with app.app_context():
+    db.create_all()
