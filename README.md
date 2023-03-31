@@ -3,6 +3,10 @@
 Zielone Check is a web application that allows users to check the current currency charts, simulate currency exchange, and monitor their profit live. 
 The application is built using Python and JavaScript, and utilizes the Frankfurt API for currency data and AmCharts for graphing.
 
+## Authors
+- [Kacper Bojanowski](https://github.com/kcbojanowski)
+- [Mateusz Potaśnik](https://github.com/PotasnikM)
+- [Bartosz Szymański](https://github.com/szymanskji)
 ## Features
 
 - Check current currency charts from [Frankfurter API](https://www.frankfurter.app)
